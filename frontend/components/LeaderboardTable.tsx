@@ -8,6 +8,7 @@ import {
   ChevronDown, ChevronUp, Copy, Check, TrendingUp, Cpu, Coins, Landmark
 } from 'lucide-react';
 import { LeaderboardItem } from '../lib/api';
+import { ProtocolLogo } from './ProtocolLogo';
 
 interface LeaderboardTableProps {
   initialItems: LeaderboardItem[];
@@ -268,15 +269,7 @@ export const LeaderboardTable: React.FC<LeaderboardTableProps> = ({
                         {/* Program Info */}
                         <td className="py-4 px-4">
                           <div className="flex items-center gap-3">
-                            <div className="w-9 h-9 rounded-xl bg-background border border-border flex items-center justify-center overflow-hidden flex-shrink-0 shadow-inner p-1.5">
-                              {item.icon_url ? (
-                                <img src={item.icon_url} alt={item.name} className="w-full h-full object-contain" />
-                              ) : (
-                                <div className="w-full h-full bg-gradient-to-br from-solana-purple to-solana-green rounded-lg flex items-center justify-center text-xs font-bold text-white">
-                                  {item.name[0]}
-                                </div>
-                              )}
-                            </div>
+                            <ProtocolLogo name={item.name} category={item.category} iconUrl={item.icon_url} size="md" />
                             <div className="space-y-0.5">
                               <div className="flex items-center gap-1.5 font-bold text-white group-hover:text-solana-green transition-colors">
                                 <Link 

@@ -13,6 +13,7 @@ import {
 } from 'recharts';
 import { fetchProgramDetail, ProgramDetail } from '../../../lib/api';
 import { ProgramFlowGraph } from '../../../components/ProgramFlowGraph';
+import { ProtocolLogo } from '../../../components/ProtocolLogo';
 
 export default function ProgramDetailPage() {
   const params = useParams();
@@ -86,15 +87,7 @@ export default function ProgramDetailPage() {
       <div className="p-6 sm:p-8 rounded-3xl bg-surface border border-border shadow-xl relative overflow-hidden">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-background border border-border flex items-center justify-center overflow-hidden p-2 flex-shrink-0">
-              {program.icon_url ? (
-                <img src={program.icon_url} alt={program.name} className="w-full h-full object-contain" />
-              ) : (
-                <div className="w-full h-full bg-gradient-to-br from-solana-purple/30 to-solana-green/30 flex items-center justify-center text-xl font-bold text-white">
-                  {program.name[0]}
-                </div>
-              )}
-            </div>
+            <ProtocolLogo name={program.name} category={program.category} iconUrl={program.icon_url} size="lg" />
 
             <div className="space-y-1">
               <div className="flex items-center gap-2">
