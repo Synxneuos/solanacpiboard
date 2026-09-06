@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  # 1. Primary Relational / Rollup Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: solanacpiboard-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-cpi_admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cpi_secure_password_123}
+      POSTGRES_DB: ${POSTGRES_DB:-solanacpiboard}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./database/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cpi_admin -d solanacpiboard"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # 2. Redis Cache & Rate-Limiter Store
+  redis:
+    image: redis:7-alpine
+    container_name: solanacpiboard-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # 3. CPI Ingestion Engine & Rollup Worker
+  indexer:
+    build:
+      context: ./indexer
+      dockerfile: Dockerfile
+    container_name: solanacpiboard-indexer
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://cpi_admin:cpi_secure_password_123@postgres:5432/solanacpiboard
+      SOLANA_RPC_URL: ${SOLANA_RPC_URL:-https://api.mainnet-beta.solana.com}
+      HELIUS_API_KEY: ${HELIUS_API_KEY:-}
+      INDEXER_MODE: ${INDEXER_MODE:-mock} # 'mock' for synthetic stream, 'rpc' for live poll, 'webhook' for Helius
+      POLL_INTERVAL_MS: 3000
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # 4. Backend REST API (FastAPI)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: solanacpiboard-backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://cpi_admin:cpi_secure_password_123@postgres:5432/solanacpiboard
+      REDIS_URL: redis://redis:6379/0
+      PORT: 8000
+      CORS_ORIGINS: "http://localhost:3000,http://127.0.0.1:3000"
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # 5. Next.js 14 Web Dashboard
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: solanacpiboard-frontend
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
+  redisdata:
