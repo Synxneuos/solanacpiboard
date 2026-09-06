@@ -40,7 +40,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInviteModal }) => {
             Community Queries
           </Link>
           <a
-            href="https://github.com/solanacpiboard/solanacpiboard"
+            href="https://github.com/Synxneuos/solanacpiboard"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-colors flex items-center gap-1.5 text-gray-400"

@@ -35,7 +35,7 @@ export default function RootLayout({
               SolanaCPIBoard is an open-source public good. Data parsed from Solana RPC & Helius.
             </p>
             <div className="flex items-center gap-6">
-              <a href="https://github.com/solanacpiboard/solanacpiboard" className="hover:text-white transition-colors">
+              <a href="https://github.com/Synxneuos/solanacpiboard" className="hover:text-white transition-colors">
                 GitHub
               </a>
               <a href="https://twitter.com/solana" className="hover:text-white transition-colors">

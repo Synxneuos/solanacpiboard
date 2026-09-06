@@ -86,7 +86,7 @@ The entire stack runs with a single command:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/solanacpiboard/solanacpiboard.git
+git clone https://github.com/Synxneuos/solanacpiboard.git
 cd solanacpiboard
 
 # 2. Start all services (PostgreSQL, Redis, Indexer, FastAPI backend, Next.js dashboard)
@@ -355,7 +355,7 @@ CPIs reveal the TRUE dependency graph of Solana—who is building on whom, and w
 Submit custom queries directly on the board or open a PR with your program's decoder!
 
 Live demo: solanacpiboard.xyz
-GitHub: github.com/solanacpiboard/solanacpiboard
+GitHub: github.com/Synxneuos/solanacpiboard
 
 Tagging @aeyakovenko @0xMert_ @SolanaFndn — let's celebrate Solana's composability! 🚀
 ```
