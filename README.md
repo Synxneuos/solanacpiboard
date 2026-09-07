@@ -1,6 +1,7 @@
-# SolanaCPIBoard ⚡
+# CPIana ⚡
 
-> **The Open-Source Solana Cross-Program Invocation (CPI) Analytics Engine & Composability Leaderboard.**
+> **The Open-Source Solana Cross-Program Invocation (CPI) Composability Engine & Leaderboard.**
+> *SQLana for CPIs — mapping the synchronous execution graph of Solana.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 [![Solana](https://img.shields.io/badge/Solana-Mainnet-14F195?logo=solana)](https://solana.com)
@@ -16,7 +17,7 @@ Solana’s superpower is **synchronous composability**—programs interacting wi
 
 Yet almost every existing explorer and analytics tool ranks programs by raw transaction count or fee spend—metrics that are trivially gamed by spam bots with wash-loops.
 
-**SolanaCPIBoard** builds and visualizes the true composability dependency graph of Solana:
+**CPIana** builds and visualizes the true composability dependency graph of Solana:
 - 📊 **Incoming CPIs (Callee)**: Measures which programs are the core infrastructure pillars depended on by the entire ecosystem.
 - ⚡ **Outgoing CPIs (Caller)**: Measures active orchestrators (aggregators, routers, liquidators) driving multi-hop execution.
 - 🕸️ **Directed Call Graphs**: Interactive bipartite visualizer showing who invokes a given contract and who it calls downstream.

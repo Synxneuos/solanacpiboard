@@ -19,8 +19,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInviteModal }) => {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-bold text-base tracking-tight text-white">
-                Solana<span className="text-gradient">CPI</span>Board
+              <span className="font-extrabold text-lg tracking-tight text-white">
+                CPI<span className="text-gradient">ana</span>
               </span>
               <span className="text-[10px] px-2 py-0.5 rounded-full bg-surface border border-border text-slate-400 font-mono font-medium">
                 Mainnet

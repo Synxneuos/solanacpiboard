@@ -143,12 +143,12 @@ export default function HomePage() {
             <span>Cross-Program Invocation Index</span>
           </div>
 
-          <h1 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
-            Solana Composability & CPI Analytics
+          <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            CPI<span className="text-gradient">ana</span>: Solana Composability & CPI Matrix
           </h1>
 
           <p className="text-sm text-slate-400 leading-relaxed max-w-2xl">
-            Solana transactions execute across multi-program call stacks. SolanaCPIBoard tracks inner instruction call trees to map <strong>which protocols depend on which</strong>, filtering out bot spam to show genuine ecosystem utility.
+            Solana transactions execute across multi-program call stacks. <strong>CPIana</strong> tracks inner instruction call trees to map <strong>which protocols depend on which</strong>, filtering out bot spam to reveal true composability.
           </p>
         </div>
 

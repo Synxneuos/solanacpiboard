@@ -15,10 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <title>SolanaCPIBoard | Solana Cross-Program Invocation Analytics</title>
+        <title>CPIana | Solana Cross-Program Invocation (CPI) Analytics</title>
         <meta
           name="description"
-          content="Open-source real-time and historical leaderboard ranking Solana programs by Cross-Program Invocation (CPI) activity."
+          content="CPIana: Open-source real-time and historical analytics engine ranking Solana programs by Cross-Program Invocation (CPI) activity."
         />
         <link rel="icon" href="/favicon.ico" />
       </head>
@@ -32,7 +32,7 @@ export default function RootLayout({
         <footer className="border-t border-border/60 bg-surface/50 py-8 text-center text-xs text-gray-500">
           <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p>
-              SolanaCPIBoard is an open-source public good. Data parsed from Solana RPC & Helius.
+              CPIana is an open-source public good. Data parsed from Solana RPC & Helius.
             </p>
             <div className="flex items-center gap-6">
               <a href="https://github.com/Synxneuos/solanacpiboard" className="hover:text-white transition-colors">

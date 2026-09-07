@@ -178,7 +178,7 @@ export const InviteModal: React.FC<InviteModalProps> = ({ isOpen, onClose }) => 
                       <ShieldCheck className="w-4 h-4" />
                       Self-Hosting & API Access
                     </div>
-                    SolanaCPIBoard is 100% open source. Request an invite for our hosted ClickHouse/PostgreSQL high-speed analytics cluster.
+                    CPIana is 100% open source. Request an invite for our high-speed analytics cluster.
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1">
