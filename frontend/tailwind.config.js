@@ -9,14 +9,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#0a0b0e',
-        surface: '#12141a',
-        surfaceHover: '#181b24',
-        border: '#1f2430',
+        background: '#0B0F19',
+        surface: '#111827',
+        surfaceHover: '#172033',
+        border: '#1F293D',
+        slateMuted: '#94A3B8',
         solana: {
-          purple: '#9945FF',
-          green: '#14F195',
-          cyan: '#00C2FF',
+          purple: '#8B5CF6',
+          green: '#10B981',
+          cyan: '#06B6D4',
         }
       }
     },
